@@ -19,7 +19,7 @@ const CategoriesPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [error, setError] = useState(null);
 
-  const uri = "http://localhost:5000"; // Ensure the correct URI is being used
+  const uri = "https://server-vendor-1hml.onrender.com"; // Ensure the correct URI is being used
 
   useEffect(() => {
     const fetchUserAndCategories = async () => {

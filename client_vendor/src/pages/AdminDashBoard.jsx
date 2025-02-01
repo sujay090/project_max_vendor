@@ -19,7 +19,7 @@ const AdminDashBoard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/dashboard");
+        const res = await axios.get("https://server-vendor-1hml.onrender.com/api/dashboard");
         setDashboardData(res.data);
       } catch (err) {   
         console.error("Error fetching dashboard data:", err);
@@ -32,7 +32,7 @@ const AdminDashBoard = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/get");
+        const res = await axios.get("https://server-vendor-1hml.onrender.com/api/users/get");
         setUsers(res.data);
       } catch (err) {
         console.error("Error fetching users:", err);
@@ -55,7 +55,7 @@ const AdminDashBoard = () => {
       };
   
       // Send full permissions object to backend
-      const res = await axios.put(`http://localhost:5000/api/users/${userId}/permissions`, {
+      const res = await axios.put(`https://server-vendor-1hml.onrender.com/api/users/${userId}/permissions`, {
         permissions: updatedPermissions, // Send full permissions object
       });
   
@@ -75,7 +75,7 @@ const AdminDashBoard = () => {
   const handleUserDelete = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        const res = await axios.delete(`http://localhost:5000/api/users/${userId}`);
+        const res = await axios.delete(`https://server-vendor-1hml.onrender.com/api/users/${userId}`);
         if (res.status === 200) {
           // Remove the deleted user from the state
           setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));

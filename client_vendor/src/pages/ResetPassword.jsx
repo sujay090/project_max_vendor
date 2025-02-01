@@ -20,7 +20,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/users/reset-password/${token}`, { password: newPassword });
+      const response = await axios.post(`https://server-vendor-1hml.onrender.com/api/users/reset-password/${token}`, { password: newPassword });
       setMessage(response.data.message);
       if(response.status===200){
         navigate("/")

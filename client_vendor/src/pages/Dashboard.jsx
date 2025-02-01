@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/dashboard");
+        const res = await axios.get("https://server-vendor-1hml.onrender.com/api/dashboard");
         setDashboardData(res.data);
       } catch (err) {
         console.error("Error fetching dashboard data:", err);
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-xl font-bold mb-6">Admin Dashboard</h1>
+      <h1 className="text-xl font-bold mb-6">User Dashboard</h1>
 
       {/* Summary Boxes */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

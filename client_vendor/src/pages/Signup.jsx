@@ -38,7 +38,7 @@ const AuthPage = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const uri = "http://localhost:5000";
+    const uri = "https://server-vendor-1hml.onrender.com";
     const url = `${uri}/api/users/signup`; // Only signup URL
 
     const data = {

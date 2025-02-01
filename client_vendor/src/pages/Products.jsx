@@ -39,7 +39,7 @@ const formatDate=(date)=>{
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get('https://server-vendor-1hml.onrender.com/api/products');
         setProducts(response.data);
       } catch (err) {
         console.error('Error fetching products:', err);
@@ -52,7 +52,7 @@ const formatDate=(date)=>{
       }
 
       try {
-        const userRes = await axios.get(`http://localhost:5000/api/users/get`);
+        const userRes = await axios.get(`https://server-vendor-1hml.onrender.com/api/users/get`);
         const currentUser = userRes.data.find((user) => user.email === loggedInEmail);
         if (currentUser) {
           setUser(currentUser);
@@ -71,7 +71,7 @@ const formatDate=(date)=>{
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/categories');
+        const res = await fetch('https://server-vendor-1hml.onrender.com/api/categories');
         if (res.ok) {
           const data = await res.json();
           setCategory(data);
@@ -90,7 +90,7 @@ const formatDate=(date)=>{
   useEffect(() => {
     const fetchVendors = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/vendors'); // Adjust the URL as needed
+        const response = await axios.get('https://server-vendor-1hml.onrender.com/api/vendors'); // Adjust the URL as needed
         setVendors(response.data);
       } catch (err) {
         console.error('Error fetching vendors:', err);
@@ -163,7 +163,7 @@ const checkPermission = (action) => {
     }
     
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://server-vendor-1hml.onrender.com/api/products/${id}`);
       setProducts(products.filter(p => p._id !== id));
       alert('Product deleted successfully');
     } catch (err) {
@@ -214,8 +214,8 @@ const checkPermission = (action) => {
 
         // No need to transform data, just send formData directly
         const response = editingProduct
-            ? await axios.put(`http://localhost:5000/api/products/${editingProduct._id}`, dataToSubmit)
-            : await axios.post('http://localhost:5000/api/products', dataToSubmit);
+            ? await axios.put(`https://server-vendor-1hml.onrender.com/api/products/${editingProduct._id}`, dataToSubmit)
+            : await axios.post('https://server-vendor-1hml.onrender.com/api/products', dataToSubmit);
 
         if (editingProduct) {
             setProducts(products.map((p) => 

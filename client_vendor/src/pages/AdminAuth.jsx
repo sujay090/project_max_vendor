@@ -15,7 +15,7 @@ function AdminAuth() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const navigate=useNavigate()
-  const uri = `http://localhost:5000`
+  const uri = `https://server-vendor-1hml.onrender.com`
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");

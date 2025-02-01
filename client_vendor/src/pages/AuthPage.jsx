@@ -38,7 +38,7 @@ const AuthPage = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const uri = "http://localhost:5000";
+    const uri = "https://server-vendor-1hml.onrender.com";
     const url = `${uri}/api/users/login`; // Only login URL
 
     const data = { email: formData.email, password: formData.password }; // Only login data
@@ -66,7 +66,7 @@ const AuthPage = () => {
     setError("");
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/forgot-password', {
+      const response = await axios.post('https://server-vendor-1hml.onrender.com/api/users/forgot-password', {
         email: forgotPasswordEmail,
       });
       setForgotPasswordMessage(response.data.message);

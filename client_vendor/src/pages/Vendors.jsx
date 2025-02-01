@@ -20,7 +20,7 @@ const VendorsPage = () => {
   // Fetch user data
   const fetchUserData = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/users/get");
+      const response = await axios.get("https://server-vendor-1hml.onrender.com/api/users/get");
       const alluser  = response.data;
       const loggedInEmail = localStorage.getItem("userEmail");
       const currentUser = alluser.find(user => user.email === loggedInEmail);
@@ -38,7 +38,7 @@ const VendorsPage = () => {
   // Fetch vendor data
   const fetchVendors = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/vendors");
+      const res = await axios.get("https://server-vendor-1hml.onrender.com/api/vendors");
       setVendors(res.data);
     } catch (err) {
       console.error("Error fetching vendors:", err);
@@ -78,7 +78,7 @@ const VendorsPage = () => {
   const handleAddVendor = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/vendors", newVendor);
+      const response = await axios.post("https://server-vendor-1hml.onrender.com/api/vendors", newVendor);
       setVendors((prev) => [...prev, response.data]);
       setShowModal(false);
       setNewVendor({ name: "", location: "", department: "", email: "", phone: "" });
@@ -91,7 +91,7 @@ const VendorsPage = () => {
   const handleUpdateVendor = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5000/api/vendors/${editVendor._id}`, editVendor);
+      const response = await axios.put(`https://server-vendor-1hml.onrender.com/api/vendors/${editVendor._id}`, editVendor);
       setVendors((prev) =>
         prev.map((vendor) => (vendor._id === editVendor._id ? response.data : vendor))
       );
@@ -108,7 +108,7 @@ const VendorsPage = () => {
     if (!confirmDelete) return;
     
     try {
-      await axios.delete(`http://localhost:5000/api/vendors/${vendorId}`);
+      await axios.delete(`https://server-vendor-1hml.onrender.com/api/vendors/${vendorId}`);
       setVendors((prev) => prev.filter((vendor) => vendor._id !== vendorId));
     } catch (err) {
       console.error("Error deleting vendor:", err);
