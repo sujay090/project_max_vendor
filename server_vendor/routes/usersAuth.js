@@ -160,7 +160,7 @@ router.post('/forgot-password', async (req, res) => {
     const token = crypto.randomBytes(32).toString('hex');
 
     // Send email with reset link including user ID and token
-    const resetLink = `http://localhost:5173/reset-password/${user._id}/${token}`; // Include user ID
+    const resetLink = `https://project-max-vendor.onrender.com/reset-password/${user._id}/${token}`; // Include user ID
     await transporter.sendMail({
       to: email,
       subject: 'Password Reset',
